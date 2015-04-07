@@ -1,9 +1,155 @@
 #main-wrapper {
-  width: 1000px;
-  height: 1000px;
+  width: 80%;
+  height: 100%;
   margin: 0 auto;
+}
 
+input {
+  border: solid 1px #d3d3d3;
+}
+
+.tabs-wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+/* Tabs panel */
+
+.tabs-panel:after {
+  display:  block;
+  clear:    both;
+  content:  '';
+}
+
+.tabs-panel a {
+  background:      white;
+  color:           #4c4c4c;
+  text-decoration: none;
+}
+
+.tabs-panel li.active a {
+  background:  #AFEEEE;
+}
+
+.tabs-panel a:hover,
+.tabs-panel li.active a:hover {
+  background:       #a7cce5;
+  text-decoration:  none;
+}
+
+.tabs-panel li {
+  margin:      0px 5px;
+  float:       left;
+  list-style:  none;
+}
+
+.tabs-panel a {
+  color:       #4c4c4c;
+  background:     white;
+  font-size:      16px;
+  font-weight:    600;
+
+  padding:        9px 15px;
+  display:        inline-block;
+  border-radius:  3px 3px 0px 0px;
+  transition:     all linear 0.15s;
+}
+
+/* Tabs content */
+
+.title {
+  padding-bottom:  3%;
+  text-align: center;
+}
+
+
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+/* Side bar */
+
+.side-bar, .inp-form {
+  float: left;
+}
+
+.side-bar {
+  width: 20%;
+}
+
+.inp-form, .calculations {
+  float: left;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  padding: 0px;
+  margin-top: 40px;
+  border-collapse: separate;
+  border-spacing: 0px 2px;
+}
+
+td {
+  margin: 25px 0px;
+}
+
+table .evaluation {
+  width: 16%;
+}
+
+table .value {
+  border: 1px solid #d3d3d3;
+  width: 86%;
+}
+
+.calculations {
+  text-align: left;
+}
+
+.inp-form label, .inp-form input {
+  /* count size as padding + margin + elemSize */
+  box-sizing: border-box;
+  /* display elem as inline */
+  display: inline-block;
+  /* allign inline element or inline block */
+  vertical-align: baseline;
+
+  margin-top: 2px;
+}
+
+.inp-form label {
+  width: 16%;
+}
+
+.inp-form  button {
+  position: relative;
+  left: 16%;
+  margin-top: 6px;
+}
+
+.inp-form input {
+  width: 84%;
+}
+
+/* Histogram */
+
+.histogram-container {
+  position: relative;
+  float: left;
+
+  left: 20px;
+  width: 70%;
+  height: 500px;
   font: 10px sans-serif;
+
+  outline-style: solid;
+  outline-width: 1px;
 }
 
 .bar rect {
