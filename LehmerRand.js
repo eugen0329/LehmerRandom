@@ -3,11 +3,11 @@ function LehmerRand(initVal, multiplier, divider) {
   multiplier = multiplier;
   divider = divider;
 
-  this.generate = function() {
-    return (val = (multiplier * val) % divider);
+  normalized = function() {
+    return (val = (multiplier * val) % divider) / divider;
   };
 
-  this.last = function() {
-    return val;
+  return function() {
+    return normalized();
   };
 }
