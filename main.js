@@ -23,6 +23,5 @@ $(document).ready(function() {
 
   var values = d3.range(randNumCount).map(rand);
   appendHistogram('.histogram-container', values, nBars, size, margin);
-
 });
 
