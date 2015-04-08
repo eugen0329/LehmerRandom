@@ -7,8 +7,6 @@ var DEFAULT = {
   barsCount:     20
 };
 
-
-
 $(document).ready(function() {
 
   var margin = {top: 10, right: 30, bottom: 30, left: 40},
@@ -41,20 +39,13 @@ function bindeventhandlers(size, margin) {
     var b           = parseFloat($('.inp-b', this).val());
     var valuescount = parseInt($('.inp-nvals', this).val());
     var nBars       = parseInt($('.inp-nbars', this).val());
-    var target      = '.uniform-distribution .histogram-container';
-
-    var mx = (a + b) / 2;
-    $('.uniform-distribution .mx .value').html(mx);
-    var dx = Math.pow(b - a, 2) / 12;
-    $('.uniform-distribution .dx .value').html(dx);
-    var sd = Math.sqrt(dx);
-    $('.uniform-distribution .sd .value').html(sd);
+    var target      = '.uniform-distribution';
 
     var values = d3.range(valuescount).map(rand.uniform(a, b));
+    appendEvaluations(values, target);
 
-    $(target).empty();
-    var xdomain = expandRange([a,b], 0.2);
-    appendHistogram(target, values, xdomain, nBars, size, margin);
+    var xDomain = expandRange([a,b], 0.2);
+    appendHistogram(target + ' .histogram-container', values, xDomain, nBars, size, margin);
 
     return false;
   });
@@ -63,27 +54,29 @@ function bindeventhandlers(size, margin) {
     var mx = parseFloat($('.inp-mx', this).val());
     var sd = parseFloat($('.inp-sd', this).val());
     var n = parseFloat($('.inp-n', this).val());
-    var valuesCount = parseInt($('.inp-val-count', this).val());
+    var valuesCount = parseInt($('.inp-nvals', this).val());
     var nBars = parseInt($('.inp-nbars', this).val());
-    var target = '.gauss-distribution .histogram-container';
+    var target = '.gauss-distribution';
 
     var values = d3.range(valuesCount).map(rand.gauss(mx, sd, n));
+    appendEvaluations(values, target);
 
-    mx = values.sum() / values.length;
-    $('.gauss-distribution .mx .value').html(mx);
-    var dx = values.reduce(function(sum, cur) {
-      return sum + (cur - mx).square() / (values.length - 1);
-    }, 0);
-    $('.gauss-distribution .dx .value').html(dx);
-    sd = Math.sqrt(dx);
-    $('.gauss-distribution .sd .value').html(sd);
-
-    $(target).empty();
     var xDomain = [0, d3.max(values)];
     values = values.keepDomain(xDomain);
-    appendHistogram(target, values, xDomain, nBars, size, margin);
+    appendHistogram(target + ' .histogram-container', values, xDomain, nBars, size, margin);
 
     return false;
   });
+
 }
 
+function appendEvaluations(values, target) {
+  var mx = values.sum() / values.length;
+  $(target + ' .mx .value').html(mx);
+  var dx = values.reduce(function(sum, cur) {
+    return sum + (cur - mx).square() / (values.length - 1);
+  }, 0);
+  $(target + ' .dx .value').html(dx);
+  var sd = Math.sqrt(dx);
+  $(target + ' .sd .value').html(sd);
+}
