@@ -100,7 +100,7 @@ td {
 }
 
 table .evaluation {
-  width: 16%;
+  width: 20%;
 }
 
 table .value {
@@ -124,17 +124,17 @@ table .value {
 }
 
 .inp-form label {
-  width: 16%;
+  width: 20%;
 }
 
 .inp-form  button {
   position: relative;
-  left: 16%;
+  left: 20%;
   margin-top: 6px;
 }
 
 .inp-form input {
-  width: 84%;
+  width: 80%;
 }
 
 /* Histogram */

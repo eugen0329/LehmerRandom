@@ -12,7 +12,7 @@
       <div class="tabs-panel">
         <ul>
           <li class="active"><a href="#tab1">Uniform</a></li>
-          <li><a href="#tab2">Tab 2</a></li>
+          <li><a href="#tab-gauss">Gauss</a></li>
         </ul>
       </div>
 
@@ -23,10 +23,10 @@
           <div class="side-bar">
             <div class="inp-form">
               <form>
-                <label for="ud-inp-a">a</label><input type="text" id="ud-inp-a" class="inp-a" value="6"/>
-                <label for="ud-inp-b">b</label><input type="text" id="ud-inp-b" class="inp-b" value="11"/>
-                <label for="ud-inp-n">n</label><input type="text" id="ud-inp-n" class="inp-n" value="6000"/>
-                <label for="ud-inp-k">k</label><input type="text" id="ud-inp-k" class="inp-k" value="20"/>
+                <label for="ud-inp-a">From</label><input type="text" id="ud-inp-a" class="inp-a" value="6"/>
+                <label for="ud-inp-b">To</label><input type="text" id="ud-inp-b" class="inp-b" value="11"/>
+                <label for="ud-inp-nvals">Count</label><input type="text" id="ud-inp-nvals" class="inp-nvals" value="6000"/>
+                <label for="ud-inp-nbars">Bars</label><input type="text" id="ud-inp-nbars" class="inp-nbars" value="20"/>
                 <button type="submit" class="submit-btn">calculate</button>
               </form>
             </div>
@@ -39,19 +39,26 @@
             </div>
           </div>
           <div class="histogram-container"></div>
-
         </div> <!--end tab1-->
 
-        <div id="tab2" class="tab gauss-distribution">
-          <div class="title"><hr><h2>Uniform distribution</h2><hr></div>
+        <div id="tab-gauss" class="tab gauss-distribution">
+          <div class="title"><hr><h2>Gauss distribution</h2><hr></div>
           <div class="side-bar">
             <div class="inp-form">
               <form>
-                <label for="ud-inp-a">a</label><input type="text" id="ud-inp-a" class="inp-a" value="1651"/>
-                <label for="ud-inp-b">b</label><input type="text" id="ud-inp-b" class="inp-b" value="2548"/>
-                <label for="ud-inp-n">n</label><input type="text" id="ud-inp-n" class="inp-n" value="6000"/>
-                <label for="ud-inp-k">k</label><input type="text" id="ud-inp-k" class="inp-k" value="20"/>
-                <button type="submit"  class="submit-btn">calculate</button>
+                <label for="ud-inp-mx">mx</label><input type="text"
+                                                        id="ud-inp-mx" class="inp-mx" value="5"/>
+                <label for="ud-inp-sd">σx</label><input type="text"
+                                                        id="ud-inp-sd" class="inp-sd" value="10"/>
+                <label for="ud-inp-n">N</label><input type="text"
+                                                        id="ud-inp-n" class="inp-n" value="6" />
+                <label for="ud-inp-val-count">Count</label><input type="text" id="ud-inp-val-count"
+                                                        class="inp-val-count" value="100000"/>
+
+                <label for="ud-inp-nbars">Bars</label><input type="text" id="ud-inp-nbars"
+                                                        class="inp-nbars" value="20"/>
+
+                <button type="submit" class="submit-btn">calculate</button>
               </form>
             </div>
             <div class="calculations">
@@ -62,8 +69,8 @@
               </table>
             </div>
           </div>
-          <!--<div class="histogram-container"></div>-->
-        </div> <!--end tab2-->
+          <div class="histogram-container"></div>
+        </div> <!--end tab-gauss-->
 
       </div>
 
