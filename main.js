@@ -19,8 +19,12 @@ var PARAMS = {
     n: { selector: '.inp-n', parser: parseInt},
     nValues: { selector: '.inp-nvals', parser: parseInt},
     nBars: { selector: '.inp-nbars', parser: parseInt}
-  }
-
+  },
+  exponential: {
+    l: { selector: '.inp-l', parser: parseFloat},
+    nValues: { selector: '.inp-nvals', parser: parseInt},
+    nBars: { selector: '.inp-nbars', parser: parseInt}
+  },
 };
 
 var rand, margin, size;
@@ -58,7 +62,7 @@ function bindeventhandlers(size, margin) {
     var xDomain = expandRange([p.a, p.b], 0.2);
 
     appendEvaluations(values, target);
-    appendHistogram(target + '.histogram-container', values, xDomain, p.nBars, size, margin);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
 
     return false;
   });
@@ -71,6 +75,18 @@ function bindeventhandlers(size, margin) {
 
     appendEvaluations(values, target);
     values = values.keepDomain(xDomain);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
+
+    return false;
+  });
+
+  $('.exponential-distribution .inp-form').on('submit', function() {
+    var target = '.exponential-distribution';
+    var p = getParams(PARAMS.exponential);
+    var values = d3.range(p.nValues).map(rand.exponential(p.l));
+    var xDomain = [0, d3.max(values)];
+
+    appendEvaluations(values, target);
     appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
 
     return false;
