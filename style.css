@@ -15,6 +15,21 @@ input {
 
 /* Tabs panel */
 
+.tabs-panel {
+  /* center tabs */
+  display: table;
+  margin: 0 auto;
+}
+
+.tabs-panel ul {
+  list-style: none;
+}
+
+.tabs-panel ul li {
+  display: inline;
+}
+
+
 .tabs-panel:after {
   display:  block;
   clear:    both;
@@ -28,7 +43,7 @@ input {
 }
 
 .tabs-panel li.active a {
-  background:  #AFEEEE;
+  background: rgb(200, 220, 256);
 }
 
 .tabs-panel a:hover,
@@ -45,21 +60,21 @@ input {
 
 .tabs-panel a {
   color:       #4c4c4c;
-  background:     white;
-  font-size:      16px;
-  font-weight:    600;
+  background:  white;
+  font-size:   16px;
+  font-weight: 600;
 
-  padding:        9px 15px;
-  display:        inline-block;
-  border-radius:  3px 3px 0px 0px;
-  transition:     all linear 0.15s;
+  padding:       9px 15px;
+  display:       inline-block;
+  border-radius: 3px 3px 0px 0px;
+  transition:    all linear 0.15s;
 }
 
 /* Tabs content */
 
 .title {
-  padding-bottom:  3%;
-  text-align: center;
+  padding-bottom: 3%;
+  text-align:     center;
 }
 
 

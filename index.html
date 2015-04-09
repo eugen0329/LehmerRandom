@@ -16,6 +16,7 @@
           <li><a href="#tab-exponential">Exponential</a></li>
           <li><a href="#tab-gamma">Gamma</a></li>
           <li><a href="#tab-triangle">Triangle</a></li>
+          <li><a href="#tab-simpson">Simpson</a></li>
         </ul>
       </div>
 
@@ -138,6 +139,28 @@
           <div class="histogram-container"></div>
         </div> <!--end tab-triangle-->
 
+        <div id="tab-simpson" class="tab simpson-distribution">
+          <div class="title"><hr><h2>Simpson distribution</h2><hr></div>
+          <div class="side-bar">
+            <div class="inp-form">
+              <form>
+                <label for="si-inp-a">a</label><input type="text" id="si-inp-a" class="inp-a" value="6"/>
+                <label for="si-inp-b">b</label><input type="text" id="si-inp-b" class="inp-b" value="11"/>
+                <label for="si-inp-nvals">Count</label><input type="text" id="si-inp-nvals" class="inp-nvals" value="10000"/>
+                <label for="si-inp-nbars">Bars</label><input type="text" id="si-inp-nbars" class="inp-nbars" value="20"/>
+                <button type="submit" class="submit-btn">calculate</button>
+              </form>
+            </div>
+            <div class="calculations">
+              <table>
+                <tr class="mx"><td class="evaluation" >mx<td class="value"></td></tr>
+                <tr class="dx"><td class="evaluation" >dx</td><td class="value"></td></tr>
+                <tr class="sd"><td class="evaluation" >σx</td><td class="value"></td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="histogram-container"></div>
+        </div> <!--end tab-simpson-->
       </div>
 
     </div>

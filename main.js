@@ -128,12 +128,23 @@ function bindeventhandlers(size, margin) {
 
     return false;
   });
-
   $('.triangle-distribution .inp-form').on('submit', function() {
 
     var target  = '.triangle-distribution';
     var p      = getParams(PARAMS.uniform, this);
     var values = d3.range(p.nValues).map(rand.triangle(p.a, p.b));
+    var xDomain = expandRange([p.a, p.b], 0.2);
+
+    appendEvaluations(values, target);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
+
+    return false;
+  });
+
+  $('.simpson-distribution .inp-form').on('submit', function() {
+    var target  = '.simpson-distribution';
+    var p      = getParams(PARAMS.uniform, this);
+    var values = d3.range(p.nValues).map(rand.simpson(p.a, p.b));
     var xDomain = expandRange([p.a, p.b], 0.2);
 
     appendEvaluations(values, target);
