@@ -25,6 +25,12 @@ var PARAMS = {
     nValues: { selector: '.inp-nvals', parser: parseInt},
     nBars: { selector: '.inp-nbars', parser: parseInt}
   },
+  gamma: {
+    l: { selector: '.inp-l', parser: parseFloat},
+    eta: { selector: '.inp-eta', parser: parseFloat},
+    nValues: { selector: '.inp-nvals', parser: parseInt},
+    nBars: { selector: '.inp-nbars', parser: parseInt}
+  },
 };
 
 var rand, margin, size;
@@ -85,6 +91,31 @@ function bindeventhandlers(size, margin) {
     var p = getParams(PARAMS.exponential);
     var values = d3.range(p.nValues).map(rand.exponential(p.l));
     var xDomain = [0, d3.max(values)];
+
+    appendEvaluations(values, target);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
+
+    return false;
+  });
+
+  $('.exponential-distribution .inp-form').on('submit', function() {
+    var target = '.exponential-distribution';
+    var p = getParams(PARAMS.exponential);
+    var values = d3.range(p.nValues).map(rand.exponential(p.l));
+    var xDomain = [0, d3.max(values)];
+
+    appendEvaluations(values, target);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
+
+    return false;
+  });
+
+  $('.gamma-distribution .inp-form').on('submit', function() {
+    var target = '.gamma-distribution';
+    var p = getParams(PARAMS.gamma);
+    var values = d3.range(p.nValues).map(rand.gamma(p.l, p.eta));
+    var xDomain = [0, d3.max(values)];
+    console.log(d3.min(values));
 
     appendEvaluations(values, target);
     appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
