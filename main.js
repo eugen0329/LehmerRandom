@@ -31,6 +31,12 @@ var PARAMS = {
     nValues: { selector: '.inp-nvals', parser: parseInt},
     nBars: { selector: '.inp-nbars', parser: parseInt}
   },
+  triangle: {
+    a:       { selector: '.inp-a',     parser: parseFloat},
+    b:       { selector: '.inp-b',     parser: parseFloat},
+    nBars:   { selector: '.inp-nbars', parser: parseInt},
+    nValues: { selector: '.inp-nvals', parser: parseInt}
+ },
 };
 
 var rand, margin, size;
@@ -116,6 +122,19 @@ function bindeventhandlers(size, margin) {
     var values = d3.range(p.nValues).map(rand.gamma(p.l, p.eta));
     var xDomain = [0, d3.max(values)];
     console.log(d3.min(values));
+
+    appendEvaluations(values, target);
+    appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);
+
+    return false;
+  });
+
+  $('.triangle-distribution .inp-form').on('submit', function() {
+
+    var target  = '.triangle-distribution';
+    var p      = getParams(PARAMS.uniform, this);
+    var values = d3.range(p.nValues).map(rand.triangle(p.a, p.b));
+    var xDomain = expandRange([p.a, p.b], 0.2);
 
     appendEvaluations(values, target);
     appendHistogram(target + ' .histogram-container', values, xDomain, p.nBars, size, margin);

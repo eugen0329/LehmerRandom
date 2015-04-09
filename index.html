@@ -15,11 +15,11 @@
           <li><a href="#tab-gauss">Gauss</a></li>
           <li><a href="#tab-exponential">Exponential</a></li>
           <li><a href="#tab-gamma">Gamma</a></li>
+          <li><a href="#tab-triangle">Triangle</a></li>
         </ul>
       </div>
 
       <div class="tabs-content">
-
         <div id="tab-uniform" class="tab active uniform-distribution">
           <div class="title"><hr><h2>Uniform distribution</h2><hr></div>
           <div class="side-bar">
@@ -48,11 +48,11 @@
           <div class="side-bar">
             <div class="inp-form">
               <form>
-                <label for="ud-inp-mx">mx</label><input type="text" id="ud-inp-mx" class="inp-mx" value="5"/>
-                <label for="ud-inp-sd">σx</label><input type="text" id="ud-inp-sd" class="inp-sd" value="10"/>
-                <label for="ud-inp-n">N</label><input type="text" id="ud-inp-n" class="inp-n" value="6" />
-                <label for="ud-inp-nvals">Count</label><input type="text" id="ud-inp-nvals" class="inp-nvals" value="100000"/>
-                <label for="ud-inp-nbars">Bars</label><input type="text" id="ud-inp-nbars"
+                <label for="ga-inp-mx">mx</label><input type="text" id="ga-inp-mx" class="inp-mx" value="5"/>
+                <label for="ga-inp-sd">σx</label><input type="text" id="ga-inp-sd" class="inp-sd" value="10"/>
+                <label for="ga-inp-n">N</label><input type="text" id="ga-inp-n" class="inp-n" value="6" />
+                <label for="ga-inp-nvals">Count</label><input type="text" id="ga-inp-nvals" class="inp-nvals" value="100000"/>
+                <label for="ga-inp-nbars">Bars</label><input type="text" id="ga-inp-nbars"
                                                         class="inp-nbars" value="20"/>
                 <button type="submit" class="submit-btn">calculate</button>
               </form>
@@ -73,9 +73,9 @@
           <div class="side-bar">
             <div class="inp-form">
               <form>
-                <label for="ud-inp-l">λ</label><input type="text" id="ud-inp-l" class="inp-l" value="5"/>
-                <label for="ud-inp-nvals">Count</label><input type="text" id="ud-inp-nvals" class="inp-nvals" value="100000"/>
-                <label for="ud-inp-nbars">Bars</label><input type="text" id="ud-inp-nbars"
+                <label for="ex-inp-l">λ</label><input type="text" id="ex-inp-l" class="inp-l" value="5"/>
+                <label for="ex-inp-nvals">Count</label><input type="text" id="ex-inp-nvals" class="inp-nvals" value="100000"/>
+                <label for="ex-inp-nbars">Bars</label><input type="text" id="ex-inp-nbars"
                                                         class="inp-nbars" value="20"/>
                 <button type="submit" class="submit-btn">calculate</button>
               </form>
@@ -96,10 +96,10 @@
           <div class="side-bar">
             <div class="inp-form">
               <form>
-                <label for="ud-inp-l">λ</label><input type="text" id="ud-inp-l" class="inp-l" value="5"/>
-                <label for="ud-inp-eta">η</label><input type="text" id="ud-inp-eta" class="inp-eta" value="6"/>
-                <label for="ud-inp-nvals">Count</label><input type="text" id="ud-inp-nvals" class="inp-nvals" value="100000"/>
-                <label for="ud-inp-nbars">Bars</label><input type="text" id="ud-inp-nbars"
+                <label for="gm-inp-l">λ</label><input type="text" id="gm-inp-l" class="inp-l" value="5"/>
+                <label for="gm-inp-eta">η</label><input type="text" id="gm-inp-eta" class="inp-eta" value="6"/>
+                <label for="gm-inp-nvals">Count</label><input type="text" id="gm-inp-nvals" class="inp-nvals" value="100000"/>
+                <label for="gm-inp-nbars">Bars</label><input type="text" id="gm-inp-nbars"
                                                         class="inp-nbars" value="20"/>
                 <button type="submit" class="submit-btn">calculate</button>
               </form>
@@ -114,6 +114,29 @@
           </div>
           <div class="histogram-container"></div>
         </div> <!--end tab-gamma-->
+
+        <div id="tab-triangle" class="tab triangle-distribution">
+          <div class="title"><hr><h2>Triangle distribution</h2><hr></div>
+          <div class="side-bar">
+            <div class="inp-form">
+              <form>
+                <label for="tr-inp-a">From</label><input type="text" id="tr-inp-a" class="inp-a" value="6"/>
+                <label for="tr-inp-b">To</label><input type="text" id="tr-inp-b" class="inp-b" value="11"/>
+                <label for="tr-inp-nvals">Count</label><input type="text" id="tr-inp-nvals" class="inp-nvals" value="10000"/>
+                <label for="tr-inp-nbars">Bars</label><input type="text" id="tr-inp-nbars" class="inp-nbars" value="20"/>
+                <button type="submit" class="submit-btn">calculate</button>
+              </form>
+            </div>
+            <div class="calculations">
+              <table>
+                <tr class="mx"><td class="evaluation" >mx<td class="value"></td></tr>
+                <tr class="dx"><td class="evaluation" >dx</td><td class="value"></td></tr>
+                <tr class="sd"><td class="evaluation" >σx</td><td class="value"></td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="histogram-container"></div>
+        </div> <!--end tab-triangle-->
 
       </div>
 
